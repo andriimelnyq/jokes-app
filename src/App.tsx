@@ -10,7 +10,7 @@ import { ErrorText } from './types/ErrorText';
 import { JokesList } from './components/JokesList';
 
 export const App: React.FC = () => {
-  const { loading, error, jokes } = useAppSelector(state => state.jokes);
+  const { loading, error } = useAppSelector(state => state.jokes);
   const dispatch = useAppDispatch();
   const handleClickLoadMore = () => dispatch(loadMore());
 
@@ -20,8 +20,6 @@ export const App: React.FC = () => {
 
   return (
     <>
-      {loading && <Loader />}
-
       <div className="app">
         <Typography variant="h2" align="center" color="primary" sx={{ fontWeight: 'bold' }}>
           Jokes
@@ -29,11 +27,13 @@ export const App: React.FC = () => {
 
         <JokesList />
 
-        {!loading && jokes.length > 0 && (
-          <Button variant="contained" onClick={handleClickLoadMore}>
-            Load more
-          </Button>
-        )}
+        {loading
+          ? <Loader />
+          : (
+            <Button variant="contained" onClick={handleClickLoadMore}>
+              Load more
+            </Button>
+          )}
       </div>
 
       <Snackbar
