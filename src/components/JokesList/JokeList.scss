@@ -1,0 +1,22 @@
+.joke-list {
+  display: grid;
+  grid-gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .joke-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .joke-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .joke-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

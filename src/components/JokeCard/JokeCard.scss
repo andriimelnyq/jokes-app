@@ -1,0 +1,28 @@
+.joke-card {
+  height: 300px;
+  width: 200px;
+  padding: 20px;
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &--transparent {
+      visibility: hidden;
+    }
+  }
+
+  &:hover &__row--transparent {
+    display: flex;
+    justify-content: space-between;
+    visibility: visible;
+  }
+}
