@@ -23,15 +23,17 @@ export const App: React.FC = () => {
       {loading && <Loader />}
 
       <div className="app">
-        <Typography variant="h2" align="center" color="primary">
+        <Typography variant="h2" align="center" color="primary" sx={{ fontWeight: 'bold' }}>
           Jokes
         </Typography>
 
         <JokesList />
 
-        <Button variant="contained" onClick={handleClickLoadMore}>
-          Load more
-        </Button>
+        {!loading && (
+          <Button variant="contained" onClick={handleClickLoadMore}>
+            Load more
+          </Button>
+        )}
       </div>
 
       <Snackbar

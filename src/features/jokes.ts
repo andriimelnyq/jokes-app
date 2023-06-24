@@ -133,7 +133,7 @@ const jokesSlice = createSlice({
     builder.addCase(addNew.fulfilled, (state, action) => {
       const jokes = getLocaleJokes();
 
-      localStorage.setItem('jokes', JSON.stringify([...jokes, ...action.payload]));
+      localStorage.setItem('jokes', JSON.stringify([...action.payload, ...jokes]));
 
       return ({
         ...state,
